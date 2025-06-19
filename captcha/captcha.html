@@ -29,6 +29,10 @@
       color: darkred;
       font-weight: normal;
     }
+    #inputText {
+      width: 90%;
+      height: 30%;
+    }
     #bottomBar {
       height: 10px;
       width: 100%;
@@ -44,12 +48,12 @@
 <body>
   <div id="captcha-container">
     <!-- Add your CAPTCHA here: -->
-    Type the words shown before the time runs out<br>
+    Type each and every word shown before the time runs out<br>
     <h5 id="errorText"></h5>
 
     <h4 id="wordDisplay" class="prevent-select"></h4>
 
-    <input id="inputText" type="text">
+    <textarea id="inputText"></textarea>
     <div id="bottomBar"></div>
   </div>
 
@@ -68,19 +72,19 @@
       ];
       
       // Chance of key press doing nothing or doubling. Odds are NOT dependant on each other
-      var failRate = 0.17;
-      var doubleRate = 0.08;
+      var failRate = 0.15;
+      var doubleRate = 0.07;
       // Time (in milliseconds) before adding double letter
-      const doubleDelay = 70;
+      const doubleDelay = 50;
       // 'Temperature' for how likely specific keys should be affected vs all keys
       // e.g. 0 = all keys same chance, 1 = only specific set of keys (randomized)
-      const temperature = 0.5;
+      const temperature = 0.4;
       // Number of keys in the key set that break more with higher temperature
       const numberOfKeys = 12;
       // Number of base words that must be typed. Increases with each reload.
       var numberOfWords = 5;
       // Amount of time (in seconds) that is allotted to type per word
-      var typingTimePerWord = 2.5;
+      var typingTimePerWord = 4;
       // Seconds of penalty time for reload after too many reloads.
       const penaltyPerReload = 5;
       // Number of reloads allowed before penalty time incurred (and penalty reset)
